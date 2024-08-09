@@ -1,7 +1,0 @@
-CREATE TABLE question_papers (
-    id INT PRIMARY KEY,
-    subject VARCHAR(100),
-    year INT,
-    pdf_path VARCHAR(255)
-  );
-  
