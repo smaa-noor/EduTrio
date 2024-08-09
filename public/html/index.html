@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question Paper Database</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Question Paper Database</h1>
+        <select id="category">
+            <option value="">Select Institution</option>
+            <option value="school">School</option>
+            <option value="college">College</option>
+            <option value="university">University</option>
+        </select>
+        <select id="subcategory" disabled>
+            <option value="">Select</option>
+        </select>
+        <select id="year" disabled>
+            <option value="">Select Year</option>
+        </select>
+        <select id="subject" disabled>
+            <option value="">Select Class</option>
+        </select>
+        <button id="search">Search</button>
+        <div id="results"></div>
+        <div id="pdf-container"></div>
+<button id="download-pdf">Download PDF</button>
+
+    </div>
+    <script type="module" src="../javascript/script.js">
+
+    </script>
+
+</body>
+</html>
