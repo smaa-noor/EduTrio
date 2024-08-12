@@ -1,6 +1,6 @@
 import { initializeApp } from '../node_modules/firebase/app';
 import { getAnalytics } from '../node_modules/firebase/analytics';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs } from '../node_modules/firebase/firestore/lite';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBdYQIyZ_YDQC8XGrOLrplpE75_KqRZY0c",
