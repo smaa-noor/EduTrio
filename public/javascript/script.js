@@ -1,5 +1,5 @@
-import { initializeApp } from 'firebase/app';
-import { getAnalytics } from "firebase/analytics";
+import { initializeApp } from '../node_modules/firebase/app';
+import { getAnalytics } from '../node_modules/firebase/analytics';
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
 const firebaseConfig = {
@@ -13,8 +13,8 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const db = getFirestore(app);
+const analytics = app.analytics();
+const db = app.getFirestore();
 const categorySelect = document.getElementById('category');
 const subcategorySelect = document.getElementById('subcategory');
 const yearSelect = document.getElementById('year');
