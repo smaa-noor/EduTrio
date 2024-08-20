@@ -18,6 +18,9 @@ const categorySelect = document.getElementById('category');
 const subcategorySelect = document.getElementById('subcategory');
 const yearSelect = document.getElementById('year');
 const programSelect = document.getElementById('subject');
+const btnSearch = document.getElementById('#search');
+const btnDownload = document.getElementById('#download-pdf');
+const pdfContainer = document.getElementById('pdf-container');
 
 // Data for subcategories, years, and subjects (replace with your actual data)
 async function getPapers() {
@@ -42,6 +45,7 @@ getPapers().then((papers) =>{
     var instName = p.instName;
     var mYear = p.year;
     var program = p.class;
+
     addToArray(institutions, inst);
     switch (inst) {
       case "School":
@@ -61,6 +65,7 @@ getPapers().then((papers) =>{
     }
     addToArray(yearArray, mYear);
   });
+
   const subcategories = {
     School: school,
     College: college,
@@ -93,6 +98,16 @@ getPapers().then((papers) =>{
   });
 });
 
+btnDownload.addEventListener('click', ()=>{
+  var selectedPaper = {
+    instType: categorySelect.value,
+    instName: subcategorySelect.value,
+    year: yearSelect.value,
+    class: programSelect.value
+  };
+  console.log(selectedPaper);
+});
+
 function createOptions(dropDown, options){
   dropDown.disabled = false;
   options.forEach(option => {
@@ -108,37 +123,4 @@ function addToArray(mArray, mValue) {
     mArray.push(mValue)
   }
 }
-
-const pdfContainer = document.getElementById('pdf-container');
-const downloadBtn = document.getElementById('download-pdf');
-
-// ... your JavaScript code ...
-
-// function displayPDF(pdfPath) {
-//     // Create an iframe to display the PDF
-//     const iframe = document.createElement('iframe');
-//     iframe.src = pdfPath;
-//     iframe.style.width = '100%';
-//     iframe.style.height = '500px'; // Adjust height as needed
-//     pdfContainer.appendChild(iframe);
-//   }
-
-//   function downloadPDF(pdfPath) {
-//     const link = document.createElement('a');
-//     link.href = pdfPath;
-//     link.download = 'document.pdf'; // Replace 'document.pdf' with desired filename
-//     link.click();
-//   }
-  
-//   // Assuming you have a function to fetch the PDF path from the database
-//   function getPDFPath(questionId) {
-//     return "file:///C:/Users/Almadina%20computers/Desktop/Web%20Engineering/EDU%20TRIO/sample_paper.pdf";
-//   }
-  
-//   // Example usage
-//   const pdfPath = getPDFPath(1); // Replace with actual question ID
-//   displayPDF(pdfPath);
-//   downloadBtn.addEventListener('click', ()=>{
-//     downloadPDF(pdfPath);
-//   });
   
