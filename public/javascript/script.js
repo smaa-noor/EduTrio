@@ -9,8 +9,8 @@ const categorySelect = document.getElementById('category');
 const subcategorySelect = document.getElementById('subcategory');
 const yearSelect = document.getElementById('year');
 const programSelect = document.getElementById('subject');
-const btnSearch = document.getElementById('#search');
-const btnDownload = document.getElementById('#download-pdf');
+const btnSearch = document.getElementById('search');
+const btnDownload = document.getElementById('download-pdf');
 const pdfContainer = document.getElementById('pdf-container');
 
 async function getPapers() {
@@ -21,6 +21,9 @@ async function getPapers() {
 }
 
 getPapers().then((papers) =>{
+  if (papers == null) {
+    return;
+  }
   var school = [];
   var college = [];
   var university = [];
@@ -32,7 +35,7 @@ getPapers().then((papers) =>{
 
   papers.forEach((p)=>{
     const paper = new PaperModel(p.instType, p.instName, p.year, p.subject, p.group);
-    console.log(paper)
+    const inst = paper.getInstType;
 
     addToArray(institutions, inst);
     switch (inst) {
@@ -84,16 +87,16 @@ getPapers().then((papers) =>{
         subcategorySelect.disabled = true;
       }
   });
-});
-
-btnDownload.addEventListener('click', ()=>{
-  var selectedPaper = {
-    instType: categorySelect.value,
-    instName: subcategorySelect.value,
-    year: yearSelect.value,
-    class: programSelect.value
-  };
-  console.log(selectedPaper);
+  
+  btnDownload.addEventListener('click', ()=>{
+    var selectedPaper = {
+      instType: categorySelect.value,
+      instName: subcategorySelect.value,
+      year: yearSelect.value,
+      class: programSelect.value
+    };
+    console.log(selectedPaper);
+  });
 });
 
 function createOptions(dropDown, options){

@@ -1,4 +1,4 @@
-class PaperModel {
+export class PaperModel {
     constructor(instType, instName, year, subject, group){
         this.instType = instType;
         this.instName = instName;
@@ -7,23 +7,43 @@ class PaperModel {
         this.group = group;
     }
 
-    get instType(){
+    get getInstType(){
         return this.instType;
     }
 
-    get instName(){
+    get getInstName(){
         this.instName;
     }
 
-    get year(){
+    get getYear(){
         this.year;
     }
 
-    get subject(){
+    get getSubject(){
         this.subject;
     }
 
-    get group(){
+    get getGroup(){
         this.group;
+    }
+
+    set setInstType(instType){
+        this.instType = instType;
+    }
+
+    set setInstName(instName){
+        this.instName = instName;
+    }
+
+    set setYear(year){
+        this.year = year;
+    }
+
+    set setSubject(subject){
+        this.subject = subject;
+    }
+
+    set setGroup(group){
+        this.group = group;
     }
 }
